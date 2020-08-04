@@ -1,9 +1,8 @@
 
-import { TodoFormController } from './todo-form.component';
+import {TodoFormController} from './todo-form.component'
 
 export const todoFormModuleName: string = angular
-  .module('testingWorkshop.app.components.todoForm', [
-  ])
+  .module('testingWorkshop.app.components.todoForm', [])
   .component('todoForm', {
     template: `
         <form ng-submit="$ctrl.addTodo()">
@@ -22,7 +21,7 @@ export const todoFormModuleName: string = angular
         </form>
     `,
     bindings: {
-        onNewElement: '&'
+        onNewTodo: '&'
     },
     controller: TodoFormController
 })
