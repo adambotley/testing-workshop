@@ -1,15 +1,15 @@
 export interface TodoFormControllerBindings {
-    onNewElement: (args: {title: string}) => void
+    onNewTodo: (args: {title: string}) => void
 }
 
 export class TodoFormController {
-    onNewElement!: TodoFormControllerBindings['onNewElement']
+    onNewTodo!: TodoFormControllerBindings['onNewTodo']
     value: string = ''
 
     constructor() {}
 
     addTodo() {
-        this.onNewElement({title: this.value});
+        this.onNewTodo({title: this.value});
         this.value = '';
     }
 }
