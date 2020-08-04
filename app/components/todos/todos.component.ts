@@ -10,8 +10,7 @@ export class TodosController {
     private $uibModal: ng.ui.bootstrap.IModalService,
     private todoListService: TodoListService,
   ) {
-    this.todoListService.getAll()
-      .then((todos) => this.todoList = todos)
+    this.todoList = this.todoListService.getAll()
   }
 
   addNewTodo(title: string) {
@@ -21,11 +20,8 @@ export class TodosController {
       done: false,
     }
 
+    this.todoList.push(todo)
     this.todoListService.store(todo)
-      .then((t) => {
-        this.todoList.push(t)
-      })
-      .catch(console.error)
   }
 
   deleteTodo(todo: TodoItem): void {
