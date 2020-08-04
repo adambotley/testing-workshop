@@ -1,6 +1,6 @@
 import {TodosController} from './todos.component'
-import {todoFormModuleName} from '../todo-form'
-import {todoListModuleName} from '../todo-list'
+import {todoFormModuleName} from 'app/components/todo-form'
+import {todoListModuleName} from 'app/components/todo-list'
 
 export const todosModuleName = angular
   .module('testingWorkshop.app.components.todos', [

@@ -1,12 +1,10 @@
 import {TodoItem} from "app/types/todo.types"
 import {TodoItemsResource, UpdateTodoItemResource} from "app/resources/todo.resource"
 
-
 export default class TodoListService {
     static TASKS_KEY = 'testing-workshop'
 
     constructor(
-        private $q: ng.IQService,
         private $window: ng.IWindowService,
         private TodoItems: TodoItemsResource,
         private UpdateTodoItem: UpdateTodoItemResource,
@@ -28,15 +26,26 @@ export default class TodoListService {
         return this.getAllStored()
     }
 
-    store(todo: TodoItem): void {
+    store(todo: TodoItem): TodoItem[] {
         const todos = this.getAllStored()
         todos.push(todo)
         this.storeAll(todos)
+
+        return todos
     }
 
-    update(todo: TodoItem): void {
+    update(todo: TodoItem): TodoItem[] {
         const todos = this.getAllStored().map((task) => task.id === todo.id ? todo : task)
         this.storeAll(todos)
+
+        return todos
+    }
+
+    remove(todo: TodoItem): TodoItem[] {
+        const todos = this.getAllStored().filter((task) => task.id !== todo.id)
+        this.storeAll(todos)
+
+        return todos
     }
 
     /**
@@ -72,12 +81,5 @@ export default class TodoListService {
         return this.UpdateTodoItem.put({id: todo.id}, todo)
         .$promise
         .catch(console.error)
-    }
-
-    remove(todo: TodoItem) {
-        const todos = this.getAllStored().filter((task) => task.id !== todo.id)
-        this.storeAll(todos)
-
-        return this.$q.resolve(todos)
     }
 }

@@ -20,8 +20,7 @@ export class TodosController {
       done: false,
     }
 
-    this.todoList.push(todo)
-    this.todoListService.store(todo)
+    this.todoList = this.todoListService.store(todo)
   }
 
   deleteTodo(todo: TodoItem): void {
@@ -29,10 +28,7 @@ export class TodosController {
     .result
     .then((confirmed) => {
         if (confirmed) {
-            this.todoListService.remove(todo)
-            .then((todos) => {
-              this.todoList =  todos
-            })
+          this.todoList = this.todoListService.remove(todo)
         }
     })
     .catch((error) => {

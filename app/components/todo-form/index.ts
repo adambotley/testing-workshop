@@ -2,8 +2,7 @@
 import {TodoFormController} from './todo-form.component'
 
 export const todoFormModuleName: string = angular
-  .module('testingWorkshop.app.components.todoForm', [
-  ])
+  .module('testingWorkshop.app.components.todoForm', [])
   .component('todoForm', {
     template: `
     <div class="row">
