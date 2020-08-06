@@ -4,7 +4,7 @@ import TodoListService from "./todo-list.service"
 import {todoListServiceModuleName} from "."
 
 describe('TodoListService', () => {
-  let localStorageMock: Storage
+  let localStorageMock: MockStorage
   let $q: ng.IQService
   let $timeout: ng.ITimeoutService
   let $window: any
@@ -55,7 +55,7 @@ describe('TodoListService', () => {
       title: 'foo',
       done: false,
     }]
-
+    setStored(expectedStored)
 
     expect(todoListService.getAll()).toEqual(expectedStored)
   })
@@ -70,13 +70,10 @@ describe('TodoListService', () => {
       done: false,
     }
 
-    // we only store strings in localStorage, and should only contain the one todo
-    const expectedStoredTodos = JSON.stringify([todo])
-
     todoListService.store(todo)
 
     expect(localStorageMock.length).toBe(1)
-    expect(getStored()).toEqual(expectedStoredTodos)
+    expect(getStored()).toEqual([todo])
   })
 
   it('adds stored todos with existing data', () => {
