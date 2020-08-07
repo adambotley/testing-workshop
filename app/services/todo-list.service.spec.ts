@@ -72,4 +72,33 @@ describe('TodoListService', () => {
     // flush http queue
     $httpBackend.flush()
   })
+
+  it('returns given todo item after updating remotely', () => {
+    const todo = {
+      id: 123,
+      title: 'bar',
+      done: false,
+    }
+
+    $httpBackend.expectPUT(`/api/v1/todo/${todo.id}`).respond(200, todo)
+
+    // updateRemote returns a promise
+    // so we can chain it to see the returned value
+    todoListService.updateRemote(todo)
+      .then((returnedTodo) => {
+
+        /**
+         * angular adds $ prefixed properties to objects it passes between components
+         * and from ajax requests. (eg. $promise, $resolved)
+         *
+         * We need to clean these properties from the object using angular.toJson
+         */
+        const cleanedReturn = JSON.parse(angular.toJson(returnedTodo))
+        expect(cleanedReturn).toEqual(todo)
+        done()
+      })
+
+    // flush http queue
+    $httpBackend.flush()
+  })
 })
