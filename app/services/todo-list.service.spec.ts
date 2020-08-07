@@ -57,6 +57,16 @@ describe('TodoListService', () => {
       done: false,
     }
 
+    const requestData = [
+      // data currently stored
+      ...storedTodos,
+      // plus new todo
+      newTodo,
+    ]
+
+    // expect post request,
+    $httpBackend.expectPOST('/api/v1/todo', requestData).respond(200, newTodo)
+
     todoListService.storeRemote(newTodo)
 
     // flush http queue
