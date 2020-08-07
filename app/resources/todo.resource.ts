@@ -32,7 +32,7 @@ export const todoResourceModuleName: string = angular
   ))
   .factory('UpdateTodoItem', ($resource: ng.resource.IResourceService) => $resource(
     '/api/v1/todo/:id',
-    {},
+    {id: '@id'},
     {
       put: {
         method: 'PUT',
