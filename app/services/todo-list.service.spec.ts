@@ -86,7 +86,16 @@ describe('TodoListService', () => {
     // so we can chain it to see the returned value
     todoListService.updateRemote(todo)
       .then((returnedTodo) => {
-        expect(returnedTodo).toEqual(todo)
+        /**
+         * angular adds $ prefixed properties to objects
+         * it passes between components
+         * and from ajax requests. (eg. $promise, $resolved)
+         *
+         * We need to clean these properties from
+         * the object using angular.toJson
+         */
+        const cleanedReturn = JSON.parse(angular.toJson(returnedTodo))
+        expect(cleanedReturn).toEqual(todo)
       })
 
     // flush http queue
