@@ -3,44 +3,14 @@
     <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <link rel="stylesheet" href="base.css">
+      <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
       <link rel="stylesheet" href="index.css">
       <title>testing-workshop</title>
-      <style>
-        body {
-            margin: 0;
-            font-family: sans-serif;
-        }
-
-        header {
-            background-color: #EBF0F2;
-            padding: 50px;
-            text-align: center;
-        }
-
-        section {
-            padding: 50px;
-
-            .image-container {
-                display: inline-block;
-                margin-right: 50px;
-            }
-
-            .text-container {
-                display: inline-block;
-                vertical-align: bottom;
-            }
-        }
-        </style>
     </head>
     <body>
         <div ng-app="testingWorkshop">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div ng-view></div>
-                    </div>
-                </div>
+                <div class="row justify-content-center align-items-center" ng-view></div>
             </div>
         </div>
         <script src="node_modules/angular/angular.js"></script>

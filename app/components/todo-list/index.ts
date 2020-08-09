@@ -6,25 +6,23 @@ export const todoListModuleName: string = angular
   ])
   .component('todoList', {
     template: `
-    <div class="col-xs-12">
-        <table class="table" ng-show="$ctrl.todos.length > 0">
+    <div class="row">
+        <table class="table table-hover" ng-show="$ctrl.todos.length > 0">
             <caption>Count: {{$ctrl.todos.length}}</caption>
-            <tr ng-repeat="todo in $ctrl.todos track by $index">
-                <td ng-class="{'task-done': todo.done}">{{todo.id}}</td>
-                <td ng-class="{'task-done': todo.done}">{{todo.title}}</td>
-                <td>
-                    <button class="pull-right btn btn-default"
-                        ng-click="$ctrl.onDone({todo: todo})"
-                        ng-show="!todo.done"
-                    >
-                        Done
-                    </button>
-                    <button class="pull-right btn btn-default"
-                        ng-click="$ctrl.onUndone({todo: todo})"
-                        ng-show="todo.done"
-                    >
-                        Redo
-                    </button>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Title</th>
+              <th scope="col">Done</th>
+            </tr>
+            <tr ng-repeat="todo in $ctrl.todos track by todo.id">
+                <td scope="col" ng-class="{'task-done': todo.done}">{{todo.id}}</td>
+                <td scope="col" ng-class="{'task-done': todo.done}">{{todo.title}}</td>
+                <td scope="col">
+                    <input type="checkbox"
+                        ng-model="todo.done"
+                        class="pull-right btn btn-default"
+                        ng-change="$ctrl.onTodoChanged({todo: todo})"
+                    />
                 </td>
             </tr>
         </table>
@@ -32,8 +30,7 @@ export const todoListModuleName: string = angular
     `,
     bindings: {
         todos: '<',
-        onDone: '&',
-        onUndone: '&',
+        onTodoChanged: '&',
     },
     controller: TodoListController,
 })

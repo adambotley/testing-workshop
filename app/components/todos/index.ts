@@ -9,15 +9,15 @@ export const todosModuleName = angular
   ])
   .component('todos', {
     template: `
-        <div class="row">
-            <h1 class="text-center">{{$ctrl.title}}</h1>
-            <todo-form on-new-element="$ctrl.addNewElement(title)"></todo-form>
-            <hr/>
-            <todo-list
-              todos="$ctrl.todoList"
-              on-done="$ctrl.markDone(todo)"
-              on-undone="$ctrl.markUndone(todo)"
-            ></todo-list>
+        <div>
+          <h2 class="text-center">{{$ctrl.title}}</h2>
+          <todo-form
+            on-new-todo="$ctrl.addNewTodo(title)"
+          ></todo-form>
+          <todo-list
+            todos="$ctrl.todoList"
+            on-todo-changed="$ctrl.onTodoChanged(todo)"
+          ></todo-list>
         </div>
     `,
     controller: TodosController,
