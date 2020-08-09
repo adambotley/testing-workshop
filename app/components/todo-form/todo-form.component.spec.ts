@@ -32,6 +32,7 @@ describe('TodoFormComponent', () => {
     $ctrl.value = 'foo'
 
     // Spy on the addTodo method
+    spyOn($ctrl, 'addTodo').and.callThrough()
 
     const saveButton = element.find('[data-selenium="save-button"]')
     // click the save button
@@ -39,8 +40,9 @@ describe('TodoFormComponent', () => {
     scope.$digest()
 
     // assert the addTodo method was called
-
+    expect($ctrl.addTodo).toHaveBeenCalled()
     // assert that the onNewTodo binding was called
     // and with the expected value
+    expect(bindings.onNewTodo).toHaveBeenCalledWith('foo')
   })
 })
