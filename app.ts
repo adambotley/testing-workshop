@@ -1,10 +1,10 @@
-import {todosModuleName} from './app/components/todos'
+import {todoModuleName} from './app/components/todo'
 import {todoListServiceModuleName} from 'app/services'
 
 angular
   .module('testingWorkshop', [
     'ngRoute',
-    todosModuleName,
+    todoModuleName,
     todoListServiceModuleName,
   ])
   .config((

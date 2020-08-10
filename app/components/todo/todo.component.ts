@@ -1,8 +1,8 @@
 import {TodoItem} from "app/types/todo.types"
 import TodoListService from "app/services/todo-list.service"
-import { openDeleteTodoModal } from "../delete-todo-modal"
+import {openDeleteTodoModal} from "app/components/delete-todo-modal"
 
-export class TodosController {
+export class TodoController {
   todoList: any[] = []
   title = 'Testing Workshop'
 
