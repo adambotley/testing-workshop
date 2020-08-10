@@ -17,6 +17,7 @@ export const todosModuleName = angular
           <todo-list
             todos="$ctrl.todoList"
             on-todo-changed="$ctrl.onTodoChanged(todo)"
+            on-delete-todo="$ctrl.deleteTodo(todo)"
           ></todo-list>
         </div>
     `,

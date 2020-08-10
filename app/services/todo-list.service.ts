@@ -39,4 +39,11 @@ export default class TodoListService {
 
         return this.$q.resolve(todo)
     }
+
+    remove(todo: TodoItem) {
+        const todos = this.getAllStored().filter((task) => task.id !== todo.id)
+        this.storeAll(todos)
+
+        return this.$q.resolve(todos)
+    }
 }
