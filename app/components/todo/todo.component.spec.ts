@@ -37,8 +37,9 @@ describe('TodoComponent', () => {
     const modalDefer = $q.defer()
 
     // spy on open modal method and return promise
-
+    spyOn(confirmModal, 'openDeleteTodoModal').and.returnValue({result: modalDefer.promise})
     // spy on remove method on storage service
+    spyOn(todoListService, 'remove').and.callThrough()
 
     $ctrl.deleteTodo(todoToDelete)
 
@@ -48,7 +49,9 @@ describe('TodoComponent', () => {
     $timeout.flush()
 
     // expect modal to have been opened
+    expect(confirmModal.openDeleteTodoModal).toHaveBeenCalled()
 
     // expect remove method to be called
+    expect(todoListService.remove).toHaveBeenCalledWith(todoToDelete)
   })
 })
