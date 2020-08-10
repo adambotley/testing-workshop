@@ -6,13 +6,12 @@ describe('TodoFormComponent', () => {
   let bindings: TodoFormControllerBindings
 
   const runComponent = () => {
-    return run(`
+    return run<TodoFormController>(`
       <todo-form
         on-new-todo="onNewTodo(title)"
       ></todo-form>
     `,
-    bindings,
-    TodoFormController)
+    bindings)
   }
 
   // Mock the module being tested. Remember this loads the module dependencies for us
