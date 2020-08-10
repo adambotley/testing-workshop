@@ -40,3 +40,49 @@ export class MockStorage {
     return this.__storageData.length
   }
 }
+
+/**
+ * An AngularJS scope object with a component controller class.
+ */
+export interface ScopeWithController<Controller> extends ng.IScope {
+  $ctrl: Controller
+}
+
+/**
+ * An AngularJS component with a particular controller.
+ */
+export interface Component<Controller> extends ng.IAugmentedJQuery {
+  isolateScope: <T extends ng.IScope>() => T & ScopeWithController<Controller>
+}
+
+export const run = function<Controller extends Object>(
+  templateString: string,
+  parentScopeOverride?: any,
+  controllerClass?: { new (...args: any[]): Controller },
+): Component<Controller> {
+  // TypeScript isn't capable of checking the type for this, because it
+  // cannot figure out that the value is assigned after inject(...)
+  let $rootScope!: ng.IRootScopeService
+  let $compile!: ng.ICompileService
+
+  inject((
+    _$rootScope_: ng.IRootScopeService,
+    _$compile_: ng.ICompileService,
+  ) => {
+    $rootScope = _$rootScope_
+    $compile = _$compile_
+  })
+
+  const parentScope = parentScopeOverride != null && parentScopeOverride.$digest == null
+    // If we pass a plain object, then use it to build a scope
+    // from the root scope to use.
+    ? Object.assign($rootScope.$new(), parentScopeOverride)
+    : parentScopeOverride || $rootScope.$new()
+
+  const preCompilationElement = angular.element(templateString)
+
+  const element = $compile(preCompilationElement)(parentScope)
+  parentScope.$digest()
+
+  return element as Component<Controller>
+}

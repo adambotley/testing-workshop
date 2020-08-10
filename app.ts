@@ -12,7 +12,7 @@ angular
   ) => {
     $routeProvider
       .when('/', {
-        template: '<todos></todos>',
+        template: '<todo></todo>',
       })
       .otherwise('/')
   })

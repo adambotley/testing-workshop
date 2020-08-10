@@ -19,6 +19,7 @@ export const todoFormModuleName: string = angular
             class="btn btn-primary"
             ng-disabled="!$ctrl.value"
             ng-click="$ctrl.addTodo()"
+            data-selenium="save-button"
           >Save</button>
         </div>
       </div>
