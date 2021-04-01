@@ -496,13 +496,6 @@
   dependencies:
     "@types/angular" "*"
 
-"@types/angular-resource@^1.5.15":
-  version "1.5.15"
-  resolved "https://registry.yarnpkg.com/@types/angular-resource/-/angular-resource-1.5.15.tgz#5afad92af99b74884ca788fc48d47ebe4be32413"
-  integrity sha512-9YZwDxh+YMYtVvgEtW8oVQXKDJf0QcLrvR5hS9NMi/faDm2V+87TuHBtQBMPKEgMo0SyyVxKzhg8gsscNVMFUw==
-  dependencies:
-    "@types/angular" "*"
-
 "@types/angular-route@^1.7.1":
   version "1.7.1"
   resolved "https://registry.yarnpkg.com/@types/angular-route/-/angular-route-1.7.1.tgz#0f545189ff51afc74afbcdde17b56a277963d51b"
@@ -5486,9 +5479,9 @@ xtend@^4.0.0, xtend@~4.0.1:
   integrity sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ==
 
 y18n@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/y18n/-/y18n-4.0.0.tgz#95ef94f85ecc81d007c264e190a120f0a3c8566b"
-  integrity sha512-r9S/ZyXu/Xu9q1tYlpsLIsa3EeLXXk0VwlxqTcFRfg9EhMW+17kbt9G0NrgCmhGb5vT2hyhJZLfDGx+7+5Uj/w==
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/y18n/-/y18n-4.0.1.tgz#8db2b83c31c5d75099bb890b23f3094891e247d4"
+  integrity sha512-wNcy4NvjMYL8gogWWYAO7ZFWFfHcbdbE57tZO8e4cbpj8tfUcwrwqSl3ad8HxpYWCdXcJUCeKKZS62Av1affwQ==
 
 yallist@^3.0.2:
   version "3.1.1"
