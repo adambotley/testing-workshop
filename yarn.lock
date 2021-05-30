@@ -496,13 +496,6 @@
   dependencies:
     "@types/angular" "*"
 
-"@types/angular-resource@^1.5.15":
-  version "1.5.15"
-  resolved "https://registry.yarnpkg.com/@types/angular-resource/-/angular-resource-1.5.15.tgz#5afad92af99b74884ca788fc48d47ebe4be32413"
-  integrity sha512-9YZwDxh+YMYtVvgEtW8oVQXKDJf0QcLrvR5hS9NMi/faDm2V+87TuHBtQBMPKEgMo0SyyVxKzhg8gsscNVMFUw==
-  dependencies:
-    "@types/angular" "*"
-
 "@types/angular-route@^1.7.1":
   version "1.7.1"
   resolved "https://registry.yarnpkg.com/@types/angular-route/-/angular-route-1.7.1.tgz#0f545189ff51afc74afbcdde17b56a277963d51b"
@@ -5466,9 +5459,9 @@ write-file-atomic@^3.0.0:
     typedarray-to-buffer "^3.1.5"
 
 ws@^7.2.3:
-  version "7.3.1"
-  resolved "https://registry.yarnpkg.com/ws/-/ws-7.3.1.tgz#d0547bf67f7ce4f12a72dfe31262c68d7dc551c8"
-  integrity sha512-D3RuNkynyHmEJIpD2qrgVkc9DQ23OrN/moAwZX4L8DfvszsJxpjQuUq3LMx6HoYji9fbIOBY18XWBsAux1ZZUA==
+  version "7.4.6"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-7.4.6.tgz#5654ca8ecdeee47c33a9a4bf6d28e2be2980377c"
+  integrity sha512-YmhHDO4MzaDLB+M9ym/mDA5z0naX8j7SIlT8f8z+I0VtzsRbekxEutHSme7NPS2qE8StCYQNUnfWdXta/Yu85A==
 
 xml-name-validator@^3.0.0:
   version "3.0.0"
